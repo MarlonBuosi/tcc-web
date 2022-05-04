@@ -1,8 +1,4 @@
-## Basic information
-
-- Please follow Angular team's [commit message convention
-
-- Within a team which is using Pull Requests (PR), please make sure Pull Request's commit message is following the convention
+# Within a team which is using Pull Requests (PR), please make sure Pull Request's commit message is following the convention
 
 ## Format of the commit message
 
