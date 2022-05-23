@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -12,9 +13,21 @@ import { ButtonBox, SignHeaderBox, SignInBox, SignInContent } from './styles';
 export function SignInContainer() {
   const navigate = useNavigate();
 
-  function navigateToDashBoard() {
+  const { user, signInWithGoogle, signInWithFaceBook } = useAuth();
+
+  const handleSignInWithGoogle = async () => {
+    if (!user) {
+      await signInWithGoogle();
+    }
     navigate('/dashBoard');
-  }
+  };
+
+  const handleSignInWithFaceBook = async () => {
+    if (!user) {
+      await signInWithFaceBook();
+    }
+    navigate('/dashBoard');
+  };
 
   return (
     <SignInContent>
@@ -29,7 +42,7 @@ export function SignInContainer() {
             </Typography>
           </SignHeaderBox>
           <Typography color="textSecondary" gutterBottom variant="body2">
-            Sign in on the internal platform
+            Faça login para entrar na aplicação
           </Typography>
         </Box>
         <ButtonBox>
@@ -39,8 +52,9 @@ export function SignInContainer() {
             startIcon={<FacebookIcon />}
             size="large"
             variant="contained"
+            onClick={handleSignInWithFaceBook}
           >
-            Login with Facebook
+            Login com Facebook
           </SignInButton>
           <SignInButton
             fullWidth
@@ -48,8 +62,9 @@ export function SignInContainer() {
             startIcon={<GoogleIcon />}
             size="large"
             variant="contained"
+            onClick={handleSignInWithGoogle}
           >
-            Login with Google
+            Login com Google
           </SignInButton>
         </ButtonBox>
       </SignInBox>

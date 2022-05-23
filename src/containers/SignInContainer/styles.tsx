@@ -1,19 +1,15 @@
 import { Avatar, Box, Button, Container, styled } from '@mui/material';
 
-export const SignInBox = styled(Box)`
-  width: 600px;
-  margin-left: 600px;
-`;
+export const SignInBox = styled(Box)``;
 
 export const SignInButton = styled(Button)`
   display: flex;
+  justify-content: flex-start;
 `;
 
 export const ButtonBox = styled(Box)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-itens: center;
   gap: 10px;
 `;
 
