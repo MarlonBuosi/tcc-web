@@ -95,7 +95,7 @@ export const Sales = (props) => {
             Last 7 days
           </Button>
         )}
-        title="Latest Sales"
+        title="HISTORICO"
       />
       <Divider />
       <CardContent>
