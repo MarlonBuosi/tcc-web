@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../services/firebase';
 
 type User = {
@@ -12,6 +13,7 @@ type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
   signInWithFaceBook: () => Promise<void>;
+  signOut: () => void;
 };
 
 type AuthContextProviderProps = {
@@ -22,6 +24,13 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const [user, setUser] = useState<User>();
+  const navigate = useNavigate();
+
+  const initialState = {
+    id: '',
+    name: '',
+    avatar: '',
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -47,7 +56,6 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-
     const result = await auth.signInWithPopup(provider);
     if (result.user) {
       const { displayName, photoURL, uid } = result.user;
@@ -67,6 +75,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const signInWithFaceBook = async () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     const result = await auth.signInWithPopup(provider);
+
     if (result.user) {
       const { displayName, photoURL, uid } = result.user;
 
@@ -82,9 +91,22 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     }
   };
 
+  const signOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        setUser(initialState);
+        navigate('/');
+        window.location.reload();
+      })
+      .catch((error) => {
+        alert('Error: ' + error);
+      });
+  };
+
   return (
     <AuthContext.Provider
-      value={{ user, signInWithGoogle, signInWithFaceBook }}
+      value={{ user, signInWithGoogle, signInWithFaceBook, signOut }}
     >
       {props.children}
     </AuthContext.Provider>

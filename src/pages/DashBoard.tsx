@@ -6,18 +6,8 @@ import { AverageDiameter } from '../components/AverageDiameter/AverageDiameter';
 import { DashboardContainer } from '../containers/DashboardContainer/DashboardContainer';
 import { PizzaChart } from '../components/PizzaChart/PizzaChart';
 import { AvaragePerTree } from '../components/AveragePerTree/AveragePerTree';
-import { useAuth } from '../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export function DashBoard() {
-  const { user } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    !user && navigate('/');
-  }, [user]);
-
   return (
     <DashboardContainer>
       <Box

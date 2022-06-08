@@ -17,8 +17,10 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({}));
 
 export const DashboardNavbar = (props: any) => {
   const { onSidebarOpen, ...other } = props;
-  const { user } = useAuth();
-  console.log(user);
+  const { user, signOut } = useAuth();
+  const handleLogout = () => {
+    signOut();
+  };
 
   return (
     <DashboardNavbarRoot
@@ -47,12 +49,13 @@ export const DashboardNavbar = (props: any) => {
             width: 40,
             ml: 1,
           }}
-          src={user?.avatar}
-        ></Avatar>
+        >
+          <img src={user?.avatar} alt="" />
+        </Avatar>
         <Tooltip title="Sign Out">
           <IconButton sx={{ ml: 1 }}>
             <Badge badgeContent={4} color="primary" variant="dot">
-              <LogoutIcon />
+              <LogoutIcon onClick={handleLogout} />
             </Badge>
           </IconButton>
         </Tooltip>
