@@ -9,10 +9,10 @@ export const FruitWeight = (props: any) => (
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="overline">
-            PESO MÉDIO DO FRUTO
+            PESO MÉDIO
           </Typography>
           <Typography color="textPrimary" variant="h4">
-            130 g
+            130 gramas
           </Typography>
         </Grid>
         <Grid item>
@@ -21,8 +21,7 @@ export const FruitWeight = (props: any) => (
               backgroundColor: 'error.main',
               height: 56,
               width: 56,
-            }}
-          >
+            }}>
             <ScaleIcon />
           </Avatar>
         </Grid>
@@ -32,20 +31,18 @@ export const FruitWeight = (props: any) => (
           pt: 2,
           display: 'flex',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <ArrowDownwardIcon color="error" />
         <Typography
           color="error"
           sx={{
             mr: 1,
           }}
-          variant="body2"
-        >
+          variant="body2">
           12%
         </Typography>
         <Typography color="textSecondary" variant="caption">
-          Since last month
+          Desde o últimos mês
         </Typography>
       </Box>
     </CardContent>

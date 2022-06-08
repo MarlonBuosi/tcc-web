@@ -9,10 +9,10 @@ export const MonthAverage = (props: any) => (
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="overline">
-            QUANTIDADE MENSAL MÉDIA
+            MÉDIA DE FRUTOS (POMAR)
           </Typography>
           <Typography color="textPrimary" variant="h4">
-            1,6k
+            1657 frutos
           </Typography>
         </Grid>
         <Grid item>
@@ -21,8 +21,7 @@ export const MonthAverage = (props: any) => (
               backgroundColor: 'success.main',
               height: 56,
               width: 56,
-            }}
-          >
+            }}>
             <NumbersIcon />
           </Avatar>
         </Grid>
@@ -32,15 +31,13 @@ export const MonthAverage = (props: any) => (
           alignItems: 'center',
           display: 'flex',
           pt: 2,
-        }}
-      >
+        }}>
         <ArrowUpwardIcon color="success" />
         <Typography
           variant="body2"
           sx={{
             mr: 1,
-          }}
-        >
+          }}>
           16%
         </Typography>
         <Typography color="textSecondary" variant="caption">

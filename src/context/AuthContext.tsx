@@ -27,13 +27,6 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const [user, setUser] = useState<User>();
   const navigate = useNavigate();
 
-  const initialState = {
-    id: '',
-    name: '',
-    avatar: '',
-    email: '',
-  };
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -100,9 +93,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     auth
       .signOut()
       .then(() => {
-        setUser(initialState);
         navigate('/');
-        window.location.reload();
       })
       .catch((error) => {
         alert('Error: ' + error);
@@ -111,8 +102,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, signInWithGoogle, signInWithFaceBook, signOut }}
-    >
+      value={{ user, signInWithGoogle, signInWithFaceBook, signOut }}>
       {props.children}
     </AuthContext.Provider>
   );

@@ -8,7 +8,7 @@ export const AverageDiameter = (props: any) => (
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="overline">
-            DIÂMETRO MÉDIO
+            DIÂMETRO MÉDIO DA FRUTA
           </Typography>
           <Typography color="textPrimary" variant="h4">
             8 cm
@@ -20,8 +20,7 @@ export const AverageDiameter = (props: any) => (
               backgroundColor: 'primary.main',
               height: 56,
               width: 56,
-            }}
-          >
+            }}>
             <StraightenIcon />
           </Avatar>
         </Grid>
