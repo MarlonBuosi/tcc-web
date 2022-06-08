@@ -15,7 +15,7 @@ export const MonthAverage = (props: any) => (
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="overline">
-            QUANTIDADE MENSAL
+            QUANTIDADE MENSAL MÉDIA
           </Typography>
           <Typography color="textPrimary" variant="h4">
             1,6k
