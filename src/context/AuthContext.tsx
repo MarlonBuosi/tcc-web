@@ -1,17 +1,20 @@
 import firebase from 'firebase/compat/app';
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../services/firebase';
 
 type User = {
   id: string;
   name: string;
   avatar: string;
+  email: string | null;
 };
 
 type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
   signInWithFaceBook: () => Promise<void>;
+  signOut: () => void;
 };
 
 type AuthContextProviderProps = {
@@ -22,11 +25,19 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const [user, setUser] = useState<User>();
+  const navigate = useNavigate();
+
+  const initialState = {
+    id: '',
+    name: '',
+    avatar: '',
+    email: '',
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        const { displayName, photoURL, uid } = user;
+        const { displayName, photoURL, uid, email } = user;
 
         if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.');
@@ -36,6 +47,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
           id: uid,
           name: displayName,
           avatar: photoURL,
+          email: email,
         });
       }
     });
@@ -47,10 +59,9 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-
     const result = await auth.signInWithPopup(provider);
     if (result.user) {
-      const { displayName, photoURL, uid } = result.user;
+      const { displayName, photoURL, uid, email } = result.user;
 
       if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.');
@@ -60,6 +71,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
         id: uid,
         name: displayName,
         avatar: photoURL,
+        email: email,
       });
     }
   };
@@ -67,8 +79,9 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
   const signInWithFaceBook = async () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     const result = await auth.signInWithPopup(provider);
+
     if (result.user) {
-      const { displayName, photoURL, uid } = result.user;
+      const { displayName, photoURL, uid, email } = result.user;
 
       if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.');
@@ -78,13 +91,27 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
         id: uid,
         name: displayName,
         avatar: photoURL,
+        email: email,
       });
     }
   };
 
+  const signOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        setUser(initialState);
+        navigate('/');
+        window.location.reload();
+      })
+      .catch((error) => {
+        alert('Error: ' + error);
+      });
+  };
+
   return (
     <AuthContext.Provider
-      value={{ user, signInWithGoogle, signInWithFaceBook }}
+      value={{ user, signInWithGoogle, signInWithFaceBook, signOut }}
     >
       {props.children}
     </AuthContext.Provider>
