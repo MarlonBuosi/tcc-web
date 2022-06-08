@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import PeopleIcon from '@mui/icons-material/PeopleOutlined';
 import NumbersIcon from '@mui/icons-material/Numbers';
 
 export const MonthAverage = (props: any) => (
