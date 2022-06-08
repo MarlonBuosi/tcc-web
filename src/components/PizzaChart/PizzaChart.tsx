@@ -7,14 +7,11 @@ import {
   CardHeader,
   Divider,
   Typography,
-  useTheme,
 } from '@mui/material';
 
 Chart.register(...registerables);
 
 export const PizzaChart = (props: any) => {
-  const theme = useTheme();
-
   const data = {
     datasets: [
       {
@@ -26,28 +23,6 @@ export const PizzaChart = (props: any) => {
       },
     ],
     labels: ['135 g', '129 g', '130 g'],
-  };
-
-  const options = {
-    animation: false,
-    cutoutPercentage: 80,
-    layout: { padding: 0 },
-    legend: {
-      display: false,
-    },
-    maintainAspectRatio: false,
-    responsive: true,
-    tooltips: {
-      backgroundColor: theme.palette.background.paper,
-      bodyFontColor: theme.palette.text.secondary,
-      borderColor: theme.palette.divider,
-      borderWidth: 1,
-      enabled: true,
-      footerFontColor: theme.palette.text.secondary,
-      intersect: false,
-      mode: 'index',
-      titleFontColor: theme.palette.text.primary,
-    },
   };
 
   const devices = [
