@@ -1,13 +1,21 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import PhoneIcon from '@mui/icons-material/Phone';
 import TabletIcon from '@mui/icons-material/Tablet';
 
 Chart.register(...registerables);
 
-export const TrafficByDevice = (props) => {
+export const PizzaChart = (props: any) => {
   const theme = useTheme();
 
   const data = {
@@ -17,10 +25,10 @@ export const TrafficByDevice = (props) => {
         backgroundColor: ['#3F51B5', '#e53935', '#FB8C00'],
         borderWidth: 8,
         borderColor: '#FFFFFF',
-        hoverBorderColor: '#FFFFFF'
-      }
+        hoverBorderColor: '#FFFFFF',
+      },
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['135 g', '129 g', '130 g'],
   };
 
   const options = {
@@ -28,7 +36,7 @@ export const TrafficByDevice = (props) => {
     cutoutPercentage: 80,
     layout: { padding: 0 },
     legend: {
-      display: false
+      display: false,
     },
     maintainAspectRatio: false,
     responsive: true,
@@ -41,80 +49,56 @@ export const TrafficByDevice = (props) => {
       footerFontColor: theme.palette.text.secondary,
       intersect: false,
       mode: 'index',
-      titleFontColor: theme.palette.text.primary
-    }
+      titleFontColor: theme.palette.text.primary,
+    },
   };
 
   const devices = [
     {
-      title: 'Desktop',
       value: 63,
-      icon: LaptopMacIcon,
-      color: '#3F51B5'
+      color: '#3F51B5',
     },
     {
-      title: 'Tablet',
       value: 15,
-      icon: TabletIcon,
-      color: '#E53935'
+      color: '#E53935',
     },
     {
-      title: 'Mobile',
       value: 23,
-      icon: PhoneIcon,
-      color: '#FB8C00'
-    }
+      color: '#FB8C00',
+    },
   ];
 
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Porcentagem por peso médio" />
       <Divider />
       <CardContent>
         <Box
           sx={{
             height: 300,
-            position: 'relative'
+            position: 'relative',
           }}
         >
-          <Doughnut
-            data={data}
-            options={options}
-          />
+          <Doughnut data={data} />
         </Box>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            pt: 2
+            pt: 2,
           }}
         >
-          {devices.map(({
-            color,
-            icon: Icon,
-            title,
-            value
-          }) => (
+          {devices.map(({ color, value }) => (
             <Box
-              key={title}
+              key={value}
               sx={{
                 p: 1,
-                textAlign: 'center'
+                textAlign: 'center',
               }}
             >
-              <Icon color="action" />
-              <Typography
-                color="textPrimary"
-                variant="body1"
-              >
-                {title}
-              </Typography>
-              <Typography
-                style={{ color }}
-                variant="h4"
-              >
-                {value}
-                %
+              <Typography color="textPrimary" variant="body1"></Typography>
+              <Typography style={{ color }} variant="h4">
+                {value}%
               </Typography>
             </Box>
           ))}
