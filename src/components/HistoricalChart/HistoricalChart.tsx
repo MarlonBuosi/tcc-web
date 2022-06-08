@@ -106,7 +106,6 @@ export const GenericChart = (props: any) => {
       <CardContent>
         <Box
           sx={{
-            height: 400,
             position: 'relative',
           }}
         >
