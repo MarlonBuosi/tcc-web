@@ -7,6 +7,7 @@ type User = {
   id: string;
   name: string;
   avatar: string;
+  email: string | null;
 };
 
 type AuthContextType = {
@@ -30,12 +31,13 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     id: '',
     name: '',
     avatar: '',
+    email: '',
   };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        const { displayName, photoURL, uid } = user;
+        const { displayName, photoURL, uid, email } = user;
 
         if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.');
@@ -45,6 +47,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
           id: uid,
           name: displayName,
           avatar: photoURL,
+          email: email,
         });
       }
     });
@@ -58,7 +61,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const result = await auth.signInWithPopup(provider);
     if (result.user) {
-      const { displayName, photoURL, uid } = result.user;
+      const { displayName, photoURL, uid, email } = result.user;
 
       if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.');
@@ -68,6 +71,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
         id: uid,
         name: displayName,
         avatar: photoURL,
+        email: email,
       });
     }
   };
@@ -77,7 +81,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
     const result = await auth.signInWithPopup(provider);
 
     if (result.user) {
-      const { displayName, photoURL, uid } = result.user;
+      const { displayName, photoURL, uid, email } = result.user;
 
       if (!displayName || !photoURL) {
         throw new Error('Missing information from Google Account.');
@@ -87,6 +91,7 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
         id: uid,
         name: displayName,
         avatar: photoURL,
+        email: email,
       });
     }
   };

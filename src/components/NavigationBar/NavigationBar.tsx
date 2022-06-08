@@ -9,6 +9,7 @@ import {
   IconButton,
   Toolbar,
   Tooltip,
+  Typography,
 } from '@mui/material';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -43,11 +44,12 @@ export const DashboardNavbar = (props: any) => {
         }}
       >
         <Box sx={{ flexGrow: 1 }} />
+        <Typography>Logged in as {user?.email}</Typography>
         <Avatar
           sx={{
             height: 40,
             width: 40,
-            ml: 1,
+            ml: 2,
           }}
           src={user?.avatar}
         ></Avatar>
