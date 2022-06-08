@@ -1,16 +1,10 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Avatar, Box, CardContent, Grid, Typography } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import NumbersIcon from '@mui/icons-material/Numbers';
+import { CardContainer } from './styles';
 
 export const MonthAverage = (props: any) => (
-  <Card {...props}>
+  <CardContainer variant="outlined" {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
@@ -54,5 +48,5 @@ export const MonthAverage = (props: any) => (
         </Typography>
       </Box>
     </CardContent>
-  </Card>
+  </CardContainer>
 );

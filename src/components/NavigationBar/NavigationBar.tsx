@@ -49,13 +49,12 @@ export const DashboardNavbar = (props: any) => {
             width: 40,
             ml: 1,
           }}
-        >
-          <img src={user?.avatar} alt="" />
-        </Avatar>
+          src={user?.avatar}
+        ></Avatar>
         <Tooltip title="Sign Out">
           <IconButton sx={{ ml: 1 }}>
             <Badge badgeContent={4} color="primary" variant="dot">
-              <LogoutIcon onClick={handleLogout} />
+              <LogoutIcon onClick={handleLogout} sx={{ color: 'white' }} />
             </Badge>
           </IconButton>
         </Tooltip>

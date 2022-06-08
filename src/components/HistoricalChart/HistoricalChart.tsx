@@ -93,7 +93,7 @@ export const GenericChart = (props: any) => {
   };
 
   return (
-    <Card {...props}>
+    <Card variant="outlined" {...props}>
       <CardHeader
         action={
           <Button endIcon={<ArrowDropDownIcon fontSize="small" />} size="small">

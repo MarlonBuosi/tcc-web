@@ -66,7 +66,7 @@ export const PizzaChart = (props: any) => {
   ];
 
   return (
-    <Card {...props}>
+    <Card variant="outlined" {...props}>
       <CardHeader title="Porcentagem por peso médio" />
       <Divider />
       <CardContent>

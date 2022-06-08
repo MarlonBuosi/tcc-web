@@ -1,8 +1,9 @@
-import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Avatar, CardContent, Grid, Typography } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
+import { CardContainer } from './styles';
 
 export const AverageDiameter = (props: any) => (
-  <Card {...props}>
+  <CardContainer variant="outlined" {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
@@ -26,5 +27,5 @@ export const AverageDiameter = (props: any) => (
         </Grid>
       </Grid>
     </CardContent>
-  </Card>
+  </CardContainer>
 );

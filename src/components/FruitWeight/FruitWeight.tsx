@@ -1,16 +1,10 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Avatar, Box, CardContent, Grid, Typography } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ScaleIcon from '@mui/icons-material/Scale';
+import { CardContainer } from './styles';
 
 export const FruitWeight = (props: any) => (
-  <Card sx={{ height: '100%' }} {...props}>
+  <CardContainer variant="outlined" {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
@@ -55,5 +49,5 @@ export const FruitWeight = (props: any) => (
         </Typography>
       </Box>
     </CardContent>
-  </Card>
+  </CardContainer>
 );

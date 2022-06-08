@@ -1,8 +1,9 @@
-import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Avatar, CardContent, Grid, Typography } from '@mui/material';
 import InsertChartIcon from '@mui/icons-material/InsertChartOutlined';
+import { CardContainer } from './styles';
 
 export const AvaragePerTree = (props: any) => (
-  <Card sx={{ height: '100%' }} {...props}>
+  <CardContainer variant="outlined" sx={{ height: '100%' }} {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
         <Grid item>
@@ -26,5 +27,5 @@ export const AvaragePerTree = (props: any) => (
         </Grid>
       </Grid>
     </CardContent>
-  </Card>
+  </CardContainer>
 );

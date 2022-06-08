@@ -13,6 +13,7 @@ export function DashBoard() {
       <Box
         component="main"
         sx={{
+          marginTop: '15px',
           flexGrow: 1,
           py: 8,
         }}
