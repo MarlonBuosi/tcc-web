@@ -7,15 +7,10 @@ import { CardContainer } from './styles';
 export const AvaragePerTree = (props: any) => (
   <CardContainer variant="outlined" {...props}>
     <CardContent>
-      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
-        <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
-            MÉDIA DE FRUTOS (ÁRVORE)
-          </Typography>
-          <Typography color="textPrimary" variant="h4">
-            142 frutos
-          </Typography>
-        </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
         <Grid item>
           <Avatar
             sx={{
@@ -25,6 +20,14 @@ export const AvaragePerTree = (props: any) => (
             }}>
             <NumbersIcon />
           </Avatar>
+        </Grid>
+        <Grid item>
+          <Typography color="textSecondary" gutterBottom variant="overline">
+            MÉDIA DE FRUTAS NA ÁRVORE
+          </Typography>
+          <Typography color="textPrimary" variant="h4">
+            142 frutas
+          </Typography>
         </Grid>
       </Grid>
       <Box

@@ -33,26 +33,23 @@ export const DashboardNavbar = (props: any) => {
           lg: 'calc(100%)',
         },
       }}
-      {...other}
-    >
+      {...other}>
       <Toolbar
         disableGutters
         sx={{
           minHeight: 64,
           left: 0,
           px: 2,
-        }}
-      >
+        }}>
         <Box sx={{ flexGrow: 1 }} />
-        <Typography>Logged in as {user?.email}</Typography>
+        <Typography>Logado como: {user?.email}</Typography>
         <Avatar
           sx={{
             height: 40,
             width: 40,
             ml: 2,
           }}
-          src={user?.avatar}
-        ></Avatar>
+          src={user?.avatar}></Avatar>
         <Tooltip title="Sign Out">
           <IconButton sx={{ ml: 1 }}>
             <Badge badgeContent={4} color="primary" variant="dot">
