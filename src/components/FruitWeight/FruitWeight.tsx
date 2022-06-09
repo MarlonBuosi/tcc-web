@@ -6,15 +6,10 @@ import { CardContainer } from './styles';
 export const FruitWeight = (props: any) => (
   <CardContainer variant="outlined" {...props}>
     <CardContent>
-      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
-        <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
-            PESO MÉDIO
-          </Typography>
-          <Typography color="textPrimary" variant="h4">
-            130 gramas
-          </Typography>
-        </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
         <Grid item>
           <Avatar
             sx={{
@@ -24,6 +19,14 @@ export const FruitWeight = (props: any) => (
             }}>
             <ScaleIcon />
           </Avatar>
+        </Grid>
+        <Grid item>
+          <Typography color="textSecondary" gutterBottom variant="overline">
+            PESO MÉDIO DA FRUTA
+          </Typography>
+          <Typography color="textPrimary" variant="h4">
+            130 gramas
+          </Typography>
         </Grid>
       </Grid>
       <Box

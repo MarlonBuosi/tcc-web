@@ -55,8 +55,7 @@ export const GenericChart = (props: any) => {
         <Box
           sx={{
             position: 'relative',
-          }}
-        >
+          }}>
           <Bar data={data} />
         </Box>
       </CardContent>
@@ -66,14 +65,12 @@ export const GenericChart = (props: any) => {
           display: 'flex',
           justifyContent: 'flex-end',
           p: 2,
-        }}
-      >
+        }}>
         <Button
           color="primary"
           endIcon={<ArrowRightIcon fontSize="small" />}
-          size="small"
-        >
-          Overview
+          size="small">
+          Visão Geral
         </Button>
       </Box>
     </Card>

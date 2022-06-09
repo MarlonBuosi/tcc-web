@@ -6,15 +6,10 @@ import { CardContainer } from './styles';
 export const MonthAverage = (props: any) => (
   <CardContainer variant="outlined" {...props}>
     <CardContent>
-      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
-        <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
-            MÉDIA DE FRUTOS (POMAR)
-          </Typography>
-          <Typography color="textPrimary" variant="h4">
-            1657 frutos
-          </Typography>
-        </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
         <Grid item>
           <Avatar
             sx={{
@@ -24,6 +19,14 @@ export const MonthAverage = (props: any) => (
             }}>
             <NumbersIcon />
           </Avatar>
+        </Grid>
+        <Grid item>
+          <Typography color="textSecondary" gutterBottom variant="overline">
+            MÉDIA DE FRUTAS NO POMAR
+          </Typography>
+          <Typography color="textPrimary" variant="h4">
+            1657 frutas
+          </Typography>
         </Grid>
       </Grid>
       <Box

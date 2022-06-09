@@ -5,15 +5,10 @@ import { CardContainer } from './styles';
 export const AverageDiameter = (props: any) => (
   <CardContainer variant="outlined" {...props}>
     <CardContent>
-      <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
-        <Grid item>
-          <Typography color="textSecondary" gutterBottom variant="overline">
-            DIÂMETRO MÉDIO DA FRUTA
-          </Typography>
-          <Typography color="textPrimary" variant="h4">
-            8 cm
-          </Typography>
-        </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
         <Grid item>
           <Avatar
             sx={{
@@ -23,6 +18,14 @@ export const AverageDiameter = (props: any) => (
             }}>
             <StraightenIcon />
           </Avatar>
+        </Grid>
+        <Grid item>
+          <Typography color="textSecondary" gutterBottom variant="overline">
+            DIÂMETRO MÉDIO DA FRUTA
+          </Typography>
+          <Typography color="textPrimary" variant="h4">
+            8 centímetros
+          </Typography>
         </Grid>
       </Grid>
     </CardContent>
